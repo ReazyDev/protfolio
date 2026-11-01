@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reazy | Websites for small businesses</title>
+<meta name="description" content="I build clean, fast websites for small businesses. Delivered in days, easy to contact, easy to update.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef2f6;
+    --surface: #ffffff;
+    --ink: #14213d;
+    --muted: #4b5a73;
+    --line: #cfd8e3;
+    --accent: #ffb703;
+    --accent-ink: #14213d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1a30;
+      --surface: #17274a;
+      --ink: #eef2f6;
+      --muted: #a9b8d0;
+      --line: #2b3d63;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 24px 0; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .logo { font-weight: 800; font-size: 22px; text-decoration: none; }
+  nav { display: flex; gap: 20px; font-size: 16px; }
+  nav a { text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+
+  .hero { padding: 56px 0 72px; display: grid; gap: 40px; grid-template-columns: 1.15fr 0.85fr; align-items: center; }
+  h1 { font-size: clamp(40px, 7vw, 72px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 20px; }
+  .lead { color: var(--muted); max-width: 46ch; margin: 0 0 28px; }
+  .btn {
+    display: inline-block; padding: 14px 26px; border-radius: 10px; font-weight: 600; text-decoration: none;
+    background: var(--accent); color: var(--accent-ink);
+  }
+  .btn:hover { filter: brightness(1.05); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); margin-left: 8px; }
+
+  /* the memorable element: a tiny browser window */
+  .browser { background: var(--surface); border: 2px solid var(--ink); border-radius: 14px; overflow: hidden; box-shadow: 8px 8px 0 var(--accent); }
+  .browser .bar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 2px solid var(--ink); }
+  .browser .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .browser .page { padding: 22px; }
+  .browser .page b { display: block; font-size: 22px; line-height: 1.15; margin-bottom: 8px; }
+  .browser .page span { display: block; height: 8px; border-radius: 4px; background: var(--line); margin: 8px 0; }
+  .browser .page span:nth-of-type(2) { width: 70%; }
+  .browser .page em { display: inline-block; margin-top: 12px; padding: 8px 16px; border-radius: 8px; background: var(--ink); color: var(--bg); font-style: normal; font-size: 14px; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; margin: 0 0 28px; line-height: 1.1; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+  .card h3 { margin: 0 0 8px; font-size: 21px; }
+  .card p { margin: 0 0 14px; color: var(--muted); font-size: 16px; }
+  .card a { font-weight: 600; font-size: 16px; }
+  .list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; max-width: 60ch; }
+  .list li { padding-left: 28px; position: relative; }
+  .list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 14px; height: 4px; border-radius: 2px; background: var(--accent); }
+  .steps { counter-reset: s; display: grid; gap: 20px; grid-template-columns: repeat(4, 1fr); padding: 0; list-style: none; margin: 0; }
+  .steps li { counter-increment: s; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--bg); font-weight: 800; margin-bottom: 10px; }
+  .steps strong { display: block; }
+  .steps span { color: var(--muted); font-size: 16px; }
+
+  .contact { display: grid; gap: 12px; font-size: 20px; }
+  .contact a, .contact div { font-weight: 600; }
+  .contact small { display: block; font-weight: 400; color: var(--muted); font-size: 15px; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; padding-top: 24px; }
+    .grid, .steps { grid-template-columns: 1fr; }
+    nav { gap: 14px; }
+    .btn.ghost { margin: 12px 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Reazy</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>I build websites that bring your business customers.</h1>
+      <p class="lead">Simple, fast, mobile-friendly websites for shops, salons, gyms, tutors and other small businesses. Most sites are ready in about 3 days.</p>
+      <a class="btn" href="#contact">Get a free quote</a>
+      <a class="btn ghost" href="#work">See my work</a>
+    </div>
+    <div class="browser" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="page">
+        <b>Your business, open for customers online</b>
+        <span></span><span></span><span></span>
+        <em>Call now</em>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Sample projects</h2>
+      <div class="grid">
+        <!-- EDIT: replace each "#" with the live link of that project (from Vercel), and the text with your own -->
+        <div class="card">
+          <h3>Salon website</h3>
+          <p>Services, prices, photo gallery and a one-tap booking button on WhatsApp.</p>
+          <a href="#">View project</a>
+        </div>
+        <div class="card">
+          <h3>Staff application site</h3>
+          <p>A clean application form with a clear layout, so applicants know exactly what to fill in.</p>
+          <a href="#">View project</a>
+        </div>
+        <div class="card">
+          <h3>Restaurant menu page</h3>
+          <p>Menu, opening hours, map and phone number, built to load fast on any phone.</p>
+          <a href="#">View project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>What you get</h2>
+      <ul class="list">
+        <li>A design that works on phones, tablets and computers</li>
+        <li>Your contact details and a clear button so customers can reach you in one tap</li>
+        <li>Fast loading pages that can be found on Google</li>
+        <li>Free small fixes after delivery, so you are never stuck</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>Tell me about your business</strong><span>Send your name, services, photos and contact details.</span></li>
+        <li><strong>I design it</strong><span>You see a first version within a day or two.</span></li>
+        <li><strong>You ask for changes</strong><span>I update it until you are happy.</span></li>
+        <li><strong>It goes live</strong><span>I publish it and show you how to share the link.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Let’s build your website</h2>
+      <div class="contact">
+        <div>
+          <a href="mailto:activereazy7484@gmail.com">activereazy7484@gmail.com</a>
+          <small>Email. Best for quotes and project details.</small>
+        </div>
+        <div>
+          reazyyt_21
+          <small>Discord username. Message me any time.</small>
+        </div>
+        <div>
+          <a href="https://github.com/ReazyDev" target="_blank" rel="noopener">github.com/ReazyDev</a>
+          <small>GitHub. See my code.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Reazy. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
